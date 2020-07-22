@@ -3,33 +3,32 @@
     <link rel="icon" href="data:,">
     <title>Face expression recognition</title>
     <style>
-      #videoElement {
-        width: 500px;
-        height: 375px;
+      #bg {
+        width: 1200px;
+        height: 900px;
         background-color: #666;
       }
       </style>
   </head>
   <body>
- 
-        <video autoplay="true" id="videoElement">
-        <img id="bg" width=1200px height=900px src="{{ url_for('video_feed') }}">
-      </video>
+    
+        <img  id="bg" src="{{ url_for('video_feed') }}">
+  
     
   </body>
 
   <script>
-    var video = document.querySelector("#videoElement");
+   var img = document.querySelector("#bg");
 
     if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUserMedia({ img : true })
     .then(function (stream) {
-      video.srcObject = stream;
+      img.srcObject = stream;
     })
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
-} 
-  </script>
+    }
+   </script>
 
 </html>
